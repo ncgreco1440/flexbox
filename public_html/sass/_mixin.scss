@@ -1,0 +1,154 @@
+$max-width: 1200px;
+$column: 'span';
+$numColumns: 16;
+
+/*//////////////////////////////////////////////////////////////////
+Parent Mixins
+*///////////////////////////////////////////////////////////////////
+
+@mixin displayFlex() {
+    display: -webkit-box;    /* OLD iOS 6, Safari 3.1-6 */
+    display: -moz-box;       /* OLD Firefox 19- (buggy) */
+    display: -ms-flexbox;    /* Tweener IE 10 */
+    display: -webkit-flex;   /* NEW Chrome * */
+    display: flex;           /* NEW Spec Opera 12.1 Firefox 20+ */
+}
+
+@mixin flex-direction($param) {
+    //Params can be row, row-reverse, column, or column-reverse
+    -webkit-box-flex-direction: $param;
+    -moz-box-flex-direction: $param;
+    -ms-flex-flex-direction: $param;
+    -webkit-flex-direction: $param;
+    flex-direction: $param;
+}
+
+@mixin flex-wrap($param) {
+    //Params can be nowrap, wrap, wrap-reverse
+    -webkit-box-flex-wrap: $param;
+    -moz-box-flex-wrap: $param;
+    -ms-flex-flex-wrap: $param;
+    -webkit-flex-wrap: $param;
+    flex-wrap: $param;
+}
+
+@mixin justify-content($param) {
+    //Params can be flex-start, flex-end, center, space-between, or space-around
+    -webkit-box-justify-content: $param;
+    -moz-box-justify-content: $param;
+    -ms-flex-justify-content: $param;
+    -webkit-justify-content: $param;
+    justify-content: $param;
+}
+
+@mixin align-items($param) {
+    /*Params can be flex-start, flex-end, center, space-between, space-around,
+    or stretch
+    */
+    -webkit-box-align-items: $param;
+    -moz-box-align-items: $param;
+    -ms-flex-items: $param;
+    -webkit-align-items: $param;
+    align-items: $param;
+}
+
+@mixin align-content($param) {
+    /*Params can be flex-start, flex-end, center, space-between, space-around,
+    or stretch
+    */
+    -webkit-box-align-content: $param;
+    -moz-box-align-content: $param;
+    -ms-flex-align-content: $param;
+    -webkit-align-content: $param;
+    align-content: $param;
+}
+
+/*//////////////////////////////////////////////////////////////////
+Child Mixins
+*///////////////////////////////////////////////////////////////////
+
+@mixin order($param) {
+    //Param should be an integer
+    -webkit-box-order: $param;
+    -moz-box-order: $param;
+    -ms-flex-order: $param;
+    -webkit-order: $param;
+    order: $param;
+}
+
+@mixin flex-grow($param) {
+    -webkit-box-flex-grow: $param;
+    -moz-box-flex-grow: $param;
+    -ms-flex-flex-grow: $param;
+    -webkit-flex-grow: $param;
+    flex-grow: $param;
+}
+
+@mixin flex-shrink($param) {
+    -webkit-box-flex-shrink: $param;
+    -moz-box-flex-shrink: $param;
+    -ms-flex-flex-shrink: $param;
+    -webkit-flex-shrink: $param;
+    flex-shrink: $param;
+}
+
+@mixin flex-basis($param) {
+    /*
+    This defines the default size of an element before the remaining space 
+    is distributed. The main-size value makes it match the width or height, 
+    depending on which is relevant based on the flex-direction.
+    
+    If set to 0, the extra space around content isn't factored in. If set to 
+    auto, the extra space is distributed based on it's flex-grow value.
+    */
+    -webkit-box-flex-basis: $param;
+    -moz-box-flex-basis: $param;
+    -ms-flex-flex-basis: $param;
+    -webkit-flex-basis: $param;
+    flex-basis: $param;
+}
+
+@mixin flex($flexGrow, $flexShrink:false, $flexBasis:false) {
+    $params: $flexBasis;
+    @if $flexShrink {
+        $params: $flexBasis $flexShrink;
+    }
+    @if $flexShrink {
+        $params: $params $flexBasis;
+    }
+    -webkit-box-flex: $params;
+    -moz-box-flex: $params;
+    -ms-flex-flex: $params;
+    -webkit-flex: $params;
+    flex: $params;
+}
+
+@mixin align-self($param) {
+    -webkit-box-align-self: $param;
+    -moz-box-align-self: $param;
+    -ms-flex-align-self: $param;
+    -webkit-align-self: $param;
+    align-self: $param;
+}
+
+@for $i from 1 through $numColumns {
+    .#{$column}-#{$i} {
+        width: 100%/$numColumns * $i;
+    }
+}
+
+@media only screen and(max-width: 1024px) {
+    @for $i from $numColumns/2 through $numColumns {
+        .#{$column}-#{$i} {
+            width: 100%;
+        }
+    }
+}
+
+@media only screen and(max-width: 767px) {
+    @for $i from 1 through $numColumns/2 - 1 {
+        .#{$column}-#{$i} {
+            width: 100%;
+        }
+    }
+}

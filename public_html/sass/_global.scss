@@ -1,0 +1,47 @@
+@import 'mixin';
+
+$columnBrdr: #000;
+$rowBrdr: #ccc;
+$wrapperBrdr: #ff43dc;
+
+
+body {
+    @include displayFlex();
+    @include justify-content(center);
+}
+
+div {
+    min-height: 1px;
+}
+
+.wrapper {
+    background-color: #ccc;
+    width: $max-width;
+    @include displayFlex();
+    @include flex-direction(column);
+    @include justify-content(space-around);
+    //@include align-items(stretch);
+}
+
+.column {
+    //Demo purpose styling
+    padding:25px 0px;
+    text-align: center;
+    background-color: #444;
+    color: #fff;
+    //@include displayFlex();
+    //@include flex-direction(row);
+    //@include justify-content(space-around);
+    //@include align-items(stretch);
+}
+
+.row {
+    background-color: #ccc;
+    @include displayFlex();
+    @include flex-grow(1);
+    @include flex-shrink(1);
+    @include flex-basis(auto);
+    @include flex-wrap(wrap);
+    @include flex-direction(row);
+    @include justify-content(space-around);
+}
