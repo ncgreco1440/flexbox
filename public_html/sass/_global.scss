@@ -37,6 +37,7 @@ div {
 
 .row {
     background-color: #ccc;
+    box-direction: normal;
     @include displayFlex();
     @include flex-grow(1);
     @include flex-shrink(1);
