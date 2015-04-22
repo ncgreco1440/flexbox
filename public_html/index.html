@@ -1,69 +1,48 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
         <title>Flexbox Framework</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="css/styles.css" rel="stylesheet" type="text/css"/>
-        <script src="js/flexie.js" type="text/javascript"></script>
+        <link href="css/styles.css" rel="stylesheet" type="text/css"/>      
     </head>
     <body>
+        <!--[if lt IE 10]>
+            <p class="browser-error">This browser doesn't support Flexbox</p>
+        <![endif]-->
+        
         <div class="wrapper">
-            <div class="row">
-                <div class="column span-16">col 16</div>
+            <div class="flexbox column-5 centered">
+                <h1>Flexbox Demo</h1>
             </div>
-            <div class="row">
-                <div class="column span-15">col 15</div>
-                <div class="column span-1">col 1</div>
+            <div class="flexbox column-8 centered">
+                <p>
+                    The images below are displayed using a flexbox. Flexbox 
+                    items are automatically spaced out based on their parent
+                    width and their individual widths. 
+                </p>
             </div>
-            <div class="row">
-                <div class="column span-14">col 14</div>
-                <div class="column span-2">col 2</div>
+            <div class="flexbox">
+                <img class="item" src="http://placehold.it/250x250" alt="placehold.it"/>
+                <img class="item" src="http://placehold.it/250x250" alt="placehold.it"/>
+                <img class="item" src="http://placehold.it/250x250" alt="placehold.it"/>
+                <img class="item" src="http://placehold.it/250x250" alt="placehold.it"/>              
             </div>
-            <div class="row">
-                <div class="column span-13">col 13</div>
-                <div class="column span-3">col 3</div>
-            </div>
-            <div class="row">
-                <div class="column span-12">col 12</div>
-                <div class="column span-4">col 4</div>
-            </div>
-            <div class="row">
-                <div class="column span-11">col 11</div>
-                <div class="column span-5">col 5</div>
-            </div>
-            <div class="row">
-                <div class="column span-10">col 10</div>
-                <div class="column span-6">col 6</div>
-            </div>
-            <div class="row">
-                <div class="column span-9">col 9</div>
-                <div class="column span-7">col 7</div>
-            </div>
-            <div class="row">
-                <div class="column span-8">col 8</div>
-                <div class="column span-8">col 8</div>
-            </div>
-            <div class="row">
-                <div class="column span-4">col 4</div>
-                <div class="column span-4">col 4</div>
-                <div class="column span-4">col 4</div>
-                <div class="column span-4">col 4</div>
-            </div>
-            <div class="row">
-                <div class="column span-2">col 2</div>
-                <div class="column span-2">col 2</div>
-                <div class="column span-2">col 2</div>
-                <div class="column span-2">col 2</div>
-                <div class="column span-2">col 2</div>
-                <div class="column span-2">col 2</div>
-                <div class="column span-2">col 2</div>
-                <div class="column span-2">col 2</div>
+            <div class="flexbox column-8 centered">
+                <div class="item column-4">
+                    <h3>A Short Story</h3>
+                    <p>
+                        Once upon a time, there was a young man named Nico. He 
+                        had a presentation to give, and in that presentation he 
+                        showcased this Flexbox demo...
+                    </p>
+                </div>
+                <div class="item column-4">
+                    <h3>A Psalm</h3>
+                    <p>
+                        The code was written, and the design was so.
+                    </p>
+                </div>
             </div>
         </div>
     </body>
